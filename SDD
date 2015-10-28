@@ -1,0 +1,35 @@
+    Scopul documentului (Document purpose)
+      Informarea asupra continutului proiectului.
+    Obiective (Objectives)
+      Respectarea deadline-urilor si implementarea specificatiilor cerute.
+    Conținutul documentului (Document overview)
+      Informatii asupra continutului proiectului
+    Modelul datelor (Data Design)
+        Structuri de date globale (Global Data Structure)
+        Structuri de date de legătură (Linking Data Structure)
+        Structuri de date temporare (Temporary data structure)
+        Formatul fișierelor utilizate (File Formats)
+          .java .js .css .html .txt
+    Modelul arhitectural și modelul componentelor (Architectural and component-level design)
+        Arhitectura sistemului (System Architecture)
+            Șabloane arhitecturale folosite (Architectural Patterns)
+              Two Tier
+            Diagrama de arhitectură (Architecture Diagram)
+              TODO
+        Descrierea componentelor (Component Description)
+          TODO
+        Restricțiile de implementare (Implementation Requirements)
+          Destinata doar pentru desktop
+        Interacțiunea dintre componente (Component Interaction)
+          TODO
+    Modelul interfeței cu utilizatorul (User Interface Design)
+        Succesiunea interfețelor (Flowchart)
+          TODO
+        Ferestrele aplicației (Screen Images)
+          TODO
+    Elemente de testare (Testing Issues)
+        Componente critice (Critical components)
+          TODO
+        Alternative (Alternatives)
+          TODO
+
