@@ -12,16 +12,20 @@
           .java .js .css .html .txt
     Modelul arhitectural și modelul componentelor (Architectural and component-level design)
         Arhitectura sistemului (System Architecture)
-            Șabloane arhitecturale folosite (Architectural Patterns)
-              Two Tier
-            Diagrama de arhitectură (Architecture Diagram)
+            * Șabloane arhitecturale folosite (Architectural Patterns)
+                Pentru acest proiect vom utiliza modelul arhitectural client-server. 
+                Modelul client-server este o arhitectura de tip aplicatie distribuita, care partajeaza procesarea intre 
+            furnizorii de servicii (serverele) si elementele care solicita servicii (clientii).
+            
+            * Diagrama de arhitectură (Architecture Diagram)
               TODO
         Descrierea componentelor (Component Description)
           TODO
         Restricțiile de implementare (Implementation Requirements)
-          Destinata doar pentru desktop
+          Aceasta aplicatie este o aplicatie de tip desktop, neputand fi accesata de pe platforme mobile.
         Interacțiunea dintre componente (Component Interaction)
-          TODO
+          Serverul asigura gestiunea utilizatorilor si conexiunea dintre ei, iar componenta de tip client solicita 
+        serverului informatii prin intermediul request-urilor.
     Modelul interfeței cu utilizatorul (User Interface Design)
         Succesiunea interfețelor (Flowchart)
           TODO
@@ -29,7 +33,8 @@
           TODO
     Elemente de testare (Testing Issues)
         Componente critice (Critical components)
-          TODO
+            Este necesare testarea individuala a fiecarei componente (client si server), precum si 
+        interactiunea dintre aceastea. Totodata trebuie testata si interfata grafica. 
         Alternative (Alternatives)
-          TODO
+          
 
