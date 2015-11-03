@@ -32,7 +32,7 @@
         Succesiunea interfețelor (Flowchart)
           TODO
         Ferestrele aplicației (Screen Images)
-          TODO
+          
     Elemente de testare (Testing Issues)
         Componente critice (Critical components)
             Este necesare testarea individuala a fiecarei componente (client si server), precum si 
