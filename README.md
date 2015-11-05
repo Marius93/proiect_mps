@@ -8,4 +8,5 @@
 5. Nutescu Ciprian	341C5
 6. Popa Bogdan		342C2
 
+### Project Diagram: ###
 ![Diagram](./docs/Proiect_MPS.png)
