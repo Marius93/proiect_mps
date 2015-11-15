@@ -54,6 +54,17 @@ public class MainController {
         return Lists.newArrayList(words);
     }
 
+    @RequestMapping(value = "/createUser" , method = RequestMethod.POST)
+    public String createUser(@RequestParam(value = "username")String username,@RequestParam(value = "password")String password){
+        for(Player player : players){
+            if(player.getName().compareTo(username) == 0 ){
+                return "NOK";
+            }
+        }
+        players.add(new Player(username,password));
+        return "OK";
+    }
+
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(@RequestParam(value = "username")String name,@RequestParam(value = "password")String password){
         for(Player player : players)
