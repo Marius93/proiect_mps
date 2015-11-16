@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>Caruselul Literelor!!</title>
+    <script src="angular.min.js"></script>
+    <script src="caruselCtrl.js"></script>
+    <link href="carusel.css" rel="stylesheet">
+</head>
+<body>
+  	<div ng-controller="caruselCtrl" id="mare">
+        <h1></br>Caruselul Literelor !</h1>
+        
+        <button ng-click="generate()">
+            Genereaza Litere
+        </button>
+
+        </br></br>
+
+        <div ng-repeat="lit in litere track by $index" style="float:left">
+            <div class="fas">{{lit}}</div>
+        </div>
+    
+        </br>
+        <div style="float:left">
+            <div class="fas2">
+            Introduceti cuvantul : <input ng-model="word" required>
+            <button type="submit" ng-click="verificaCuvant()">Trimite</button>
+            </div>
+        </div>
+
+        <div style="float:right">
+            <div class="fas3">
+            <strong>Scor</strong> : {{score}}
+            </div>
+        </div>
+
+        <div style="float:right">
+            <div class="fas3">
+            <strong>Nume concurent</strong> : {{nameGet}}
+            </div>
+        </div>
+
+        Timp ramas </br> <font color='red'>{{min}}:{{blood_2}}</font>
+
+  	</div>
+</body>
+</html>
