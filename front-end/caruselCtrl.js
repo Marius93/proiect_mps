@@ -13,7 +13,7 @@ app
 			}
 			// TODO aici tre sa trimitem la server numele de utilizator (users)
 			
-			$http.post('/localhost:8080/login', users)
+			$http.post('localhost:8080/login', users)
 				success(function(data, status, headers, config) {
 				// this callback will be called asynchronously
 				// when the response is available
@@ -36,6 +36,39 @@ app
 			console.log("The value of 'users' has changed");
 		},true);
 
+		//metoda login user 1 - autentificare ok; 0 - autentificar nu e ok
+		$scope.loginUserFunction = function(var username,var password) {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+   				 if (xhttp.readyState == 4 && xhttp.status == 200) {
+      					console.log(xhttp.responseText);
+      					if(xhttp.responseText.localeCompare('OK') == 0)
+      						return 1;
+      					else 
+      						return 0;
+   				 }
+ 			 };
+			xhttp.open("POST", "http://localhost:8080/login", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("username=" + username + "&password=" + password);
+		}
+
+		//metoda creare user la fel ca cea de sus
+		$scope.createUserFunction = function(var username,var password){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+   				 if (xhttp.readyState == 4 && xhttp.status == 200) {
+      					console.log(xhttp.responseText);
+      					if(xhttp.responseText.localeCompare('OK') == 0)
+      						return 1;
+      					else 
+      						return 0;
+   				 }
+ 			 };
+			xhttp.open("POST", "http://localhost:8080/createUser", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("username=" + username + "&password=" + password);
+		}
 
 		$scope.singlePlayer = function() {
 			//daca se alege singlePlayer trimit la server asta
@@ -47,21 +80,18 @@ app
 		$scope.ok = 0;
 		$scope.litere = ['','','','','','','','','']; //primesc de la server
 		$scope.generate = function() {
-
-			// trebuie sa primes de la server lista cu litere
-			// si o pun in scope.litere
-			$http.get('/localhost:8080/startGame').
-			success(function(data, status, headers, config) {
-			// this callback will be called asynchronously
-			// when the response is available
-			}).
-			error(function(data, status, headers, config) {
-			// called asynchronously if an error occurs
-			// or server returns response with an error status.
-			// return status;
-			console.log(status);
-			});
-
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+   				 if (xhttp.readyState == 4 && xhttp.status == 200) {
+      					console.log(xhttp.responseText); 
+      					var arr = xhttp.responseText.split();
+      					for(var i=0;i<9;i++)
+      						$scope.litere[i] = arr[i];
+   				 }
+ 			 };
+			xhttp.open("GET", "http://localhost:8080/startGame", true);
+			xhttp.send();
+			
 			//pornesc timerul
 			$scope.fight();
 		}
@@ -70,6 +100,8 @@ app
         $scope.blood_2 = 0;
         $scope.min = 2;
         $scope.terminat = 0;
+
+        //pentru numele jucatorului trimite prin  url numele sau... ceva genul pagin_web_urmatoare?username=Ciprian
 
         var stop;
         $scope.fight = function() {
@@ -97,23 +129,23 @@ app
 		$scope.score = 0;
 		$scope.nameGet = "";
 
-		//iau de la server numele jucatorului si il
-		$http.get('/localhost:8080/login').
-			success(function(data, status, headers, config) {
-			// this callback will be called asynchronously
-			// when the response is available
-			$scope.nameGet = data;
-			}).
-			error(function(data, status, headers, config) {
-			// called asynchronously if an error occurs
-			// or server returns response with an error status.
-			// return status;
-			console.log(status);
-			});
+		
 
 		$scope.verificaCuvant = function() {
-			//trimit cuvant la server
-			//$scope.score = ce primesc de la server;
+			//inainte de toate astea sa se verifice daca cuvantul contine doar literele din joc
+			//daca da se executa codul asta de jos 
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+   				 if (xhttp.readyState == 4 && xhttp.status == 200) {
+      					console.log(xhttp.responseText);
+      					$scope.score += parseInt(xhttp.responseText);
+   				 }
+ 			 };
+			xhttp.open("POST", "http://localhost:8080/validateWords", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("words=" + $scope.word);
+
+			//linia de sub se executa indiferent de validare, ok ?
 			$scope.word= "";
 		}
 	}])
