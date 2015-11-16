@@ -1,0 +1,38 @@
+Data : 4.11.2015
+Ora : 9:00
+
+Participanti :  Capatina Andreea
+                Apostol Alina
+                Ene Cezar
+                Popa Bogdan
+                Nutescu Ciprian-Ionut
+                Chiroiu Marius
+                
+1. Finalizarea detaliilor arhitecturale
+  Ciprian: front-end-> validare simpla dupa trimite task-uri catre back-end
+  Bogdan: validarea se face in ambele parti
+  
+2. Stabilirea task-urilor pentru partea de implementare
+  Alina : eu fac front-endul -> fereastra de login
+  Cezar: eu testez dupa ficare componenta pe care voi o faceti
+  Ciprian: Back-end
+  Bogdan: facem si autentificare, creare user nou
+3. Andreea: alternativa la componenta critica
+  Ciprian: are un script care reporneste serverul
+  Bogdan: sau sa avem 2 masini si cand pica una sa o redirectionam pe alta
+4. Team 
+  Ciprian : cand facem team-bulding
+  Bogdan: team-drinking
+5
+  Andreea: explica ce trebuie sa se faca la proiect ca Bogdan nu stie
+6
+  Bogdan:   -validari folosite: dimensiunea cuv si literele corespunzatoare(fe)
+            -Cuvantul e in dictionar(be)
+  Ciprian: facem cu baze de date sau cu fisier?
+  Grup: folosim baze de date mysql
+  Andreea : daca folosim fisier am putea sa folosim csv
+  
+  Concluzii : 
+  - Stie toata lumea ce trebuie facut la proiect.
+  - Am stabilit rolurile in cadrul echipei
+  - Am impartit task-uri pentru saptamana in curs
