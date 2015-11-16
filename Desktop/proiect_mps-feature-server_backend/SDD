@@ -1,0 +1,42 @@
+    Scopul documentului (Document purpose)
+        Scopul acestui document este de a oferi o descriere completa a designului aplicatiei, astfel incat 
+    dezvoltatorii software sa poata intelege si construi produsul in concordanta cu asteptarile arhitectului.
+    Obiective (Objectives)
+        Realizarea unui joc single/multi player. 
+    Conținutul documentului (Document overview)
+        Informatii asupra arhitecturii proiectului.
+    
+    Modelul datelor (Data Design)
+        Structuri de date globale (Global Data Structure)
+        Structuri de date de legătură (Linking Data Structure)
+        Structuri de date temporare (Temporary data structure)
+        Formatul fișierelor utilizate (File Formats)
+          .java .js .css .html .txt
+    Modelul arhitectural și modelul componentelor (Architectural and component-level design)
+        Arhitectura sistemului (System Architecture)
+            * Șabloane arhitecturale folosite (Architectural Patterns)
+                Pentru acest proiect vom utiliza modelul arhitectural client-server. 
+                Modelul client-server este o arhitectura de tip aplicatie distribuita, care partajeaza procesarea intre 
+            furnizorii de servicii (serverele) si elementele care solicita servicii (clientii).
+            
+            * Diagrama de arhitectură (Architecture Diagram)
+              TODO
+        Descrierea componentelor (Component Description)
+          TODO
+        Restricțiile de implementare (Implementation Requirements)
+          Aceasta aplicatie este o aplicatie de tip desktop, neputand fi accesata de pe platforme mobile.
+        Interacțiunea dintre componente (Component Interaction)
+          Serverul asigura gestiunea utilizatorilor si conexiunea dintre ei, iar componenta de tip client solicita 
+        serverului informatii prin intermediul request-urilor.
+    Modelul interfeței cu utilizatorul (User Interface Design)
+        Succesiunea interfețelor (Flowchart)
+          TODO
+        Ferestrele aplicației (Screen Images)
+          
+    Elemente de testare (Testing Issues)
+        Componente critice (Critical components)
+            Este necesare testarea individuala a fiecarei componente (client si server), precum si 
+        interactiunea dintre aceastea. Totodata trebuie testata si interfata grafica. 
+        Alternative (Alternatives)
+          
+

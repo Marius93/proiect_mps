@@ -1,0 +1,6 @@
+hello/Application.class
+applicationLogic/DictionaryValidation.class
+csvReader/CSVReaderWriter.class
+hello/MainController.class
+csvReader/Player.class
+applicationLogic/DictionaryReader.class
