@@ -81,26 +81,9 @@ public class MainController {
                 diceRoll += dice.charAt((int) (Math.random() * 5));
             }
             return diceRoll;
-        } else{
-            if(numberOfPlayers == 4){
-                this.notifyAll();
-                String diceRoll = "";
-                for(String dice : dices) {
-                    diceRoll += dice.charAt((int) (Math.random() * 5));
-                }
-                numberOfPlayers = 0;
-                return diceRoll;
-            }
-            else{
-                this.wait(200000);
-                String diceRoll = "";
-                for(String dice : dices) {
-                    diceRoll += dice.charAt((int) (Math.random() * 5));
-                }
-                numberOfPlayers = 0;
-                return diceRoll;
-            }
         }
+        else
+            return null;
     }
 
     @RequestMapping(value = "/validateWords",method = RequestMethod.POST)
@@ -110,7 +93,7 @@ public class MainController {
         while (st.hasMoreTokens()) {
             String word = st.nextToken();
             if(word != null && DictionaryValidation.validateWord(word))
-                score += word.length()*2;
+                score += word.length() > 4 ? word.length()*3: word.length()*2;
         }
         return score;
     }

@@ -144,6 +144,10 @@ var counterBack = setInterval(function(){
 			xhttp.send();
 			
 		}
+		function checkWordsForOccr(word){	
+			//TODO
+			return true;
+		}
 
 		function verifyWord() {
 			
@@ -161,7 +165,7 @@ var counterBack = setInterval(function(){
 			var wordsArray = $("#words").val().split(", ");
 			for(var i = 0 ; i < wordsArray.length;i++)
 				//if(checkWord(wordsArray[i],litere) == true)
-				if(regex.test(wordsArray[i].toUpperCase()) == true)
+				if(regex.test(wordsArray[i].toUpperCase()) == true && checkWordsForOccr(wordsArray[i].toUpperCase()) == true)
 					wordsToSend = wordsToSend  == "" ? wordsArray[i] : wordsToSend + "," + wordsArray[i];
 				else
 					console.log(regex);
