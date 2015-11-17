@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Caruselul literelor</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        <script src="assets/js/bootbox.min.js"></script>
+        <script src="assets/js/jquery.countdown.min.js"></script>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+
+        <!-- Top content -->
+        <div class="top-content">
+        	
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-2 text">
+                            <h1><strong>Caruselul literelor</strong></h1>
+                            <div class="description">
+                            	<p>
+	                            	Proiect 1 MPS Caruselul literelor. Realizat de :<br>
+	                            	Nutescu Ciprian-Ionut
+	                            	Apostol Alina
+	                            	Capatina Andreea 
+	                            	Chiroiu Marius
+	                            	Ene Cezar Alin 	
+	                            	Popa Bogdan		
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1 form-box">
+                        	<div class="form-top">
+                        	<h1>
+                        	<div id="player"><div><br>
+                        	
+                        	</h1><h1>Score:
+                        	<span id="score"></span>
+                        	</h1>
+                        	<br><br>
+
+                        		<div class="progress">
+    <div id="theBar" class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;min-width: 0.7em;">
+        0
+    </div>
+</div>
+                            
+
+<div class="jumbotron">
+<h1 id="letters">
+</h1>
+</div>
+</div>
+<div class="form-bottom">
+<div class="row">
+  <div class="col-lg-10">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Enter words here..." id="words">
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-info" onclick="verifyWord()">Validate!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <script type="text/javascript">
+		var i = 0;
+var litere = [];
+		var score = 0;
+var counterBack = setInterval(function(){
+  i++;
+  if(i<=120){
+    $('.progress-bar').css('width', i+'%');
+    $('.progress-bar').text(i);
+  } else {
+    clearTimeout(counterBack);
+    bootbox.alert({
+    	title : "Your score : " + score,
+    	message : " <a href = 'game.html?player="+location.search.split('player=')[1]+"'> New game ??</a>" 
+    });
+  }
+
+}, 1000);        
+		
+		$('#score').text(score);
+        $('#player').text(location.search.split('player=')[1]);
+
+        function generate() {
+           	
+           	var x = "";
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+   				 if (xhttp.readyState == 4 && xhttp.status == 200) {
+      					console.log(xhttp.responseText); 
+      					var arr = xhttp.responseText.split('');
+      					for(var i=0;i<9;i++){
+      						litere[i] = litere[i] = arr[i];
+      						x = x + " " + arr[i];
+      						
+      					}
+      					$("#letters").text(x);
+   				 }
+ 			 };
+			xhttp.open("GET", "http://localhost:8080/startGame", true);
+			xhttp.send();
+			
+		}
+
+		function verifyWord() {
+			
+			if($("#words").val() == undefined || $("#words").val() == "" || $("#words").val().length <= 3 || $("#words").val().length >=10){
+				$("#words").val("");
+				$("#words").focus();
+				return;
+			}
+			var regexConstructor = "^[";
+			for(i=0;i<litere.length;i++)
+				regexConstructor += litere[i];
+			regexConstructor += "]+$";
+			var regex = new RegExp(regexConstructor);
+			var wordsToSend = "";
+			var wordsArray = $("#words").val().split(", ");
+			for(var i = 0 ; i < wordsArray.length;i++)
+				//if(checkWord(wordsArray[i],litere) == true)
+				if(regex.test(wordsArray[i].toUpperCase()) == true)
+					wordsToSend = wordsToSend  == "" ? wordsArray[i] : wordsToSend + "," + wordsArray[i];
+				else
+					console.log(regex);
+			var xhttp = new XMLHttpRequest();
+			console.log(litere);
+			console.log(wordsArray);
+			console.log(wordsToSend);
+			xhttp.onreadystatechange = function() {
+   				 if (xhttp.readyState == 4 && xhttp.status == 200) {
+      					console.log(xhttp.responseText);
+      					score += parseInt(xhttp.responseText);
+      					$('#score').text(score);
+      					$("#words").val("");
+      					$("#words").focus();
+   				 }
+ 			 };
+			xhttp.open("POST", "http://localhost:8080/validateWords", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("words=" + wordsToSend);
+			
+			//linia de sub se executa indiferent de validare, ok ?
+			
+		}
+
+
+		window.onload = generate();
+        </script>
+
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
+</html>
