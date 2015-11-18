@@ -1,0 +1,19 @@
+	Legatura intre cele doua componente client si server se realizeaza la nivelul serverului in MainContoller.java.
+	Controllerul primeste de la client requesturi http de tipul POST/GET prin care da sau cere resurse din partea serverul. Cererile sunt:
+ -> login
+	* path: web/login
+	* tip: POST	
+	* headere: username,password
+	* return: OK/NOK
+ -> startGame
+	* path : web/startGame
+	* tip: GET
+	* headere: gameType(optional)
+	* return: un string cu zarurile picate
+ -> validateWords
+	* path: web/validateWords
+	* tip: POST
+	* headere: string-ul cu word-uri
+	* return: scorul calculat din word-uri
+
+
